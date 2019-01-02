@@ -1,9 +1,19 @@
+sudo: required
+
 language: java
 
 jdk:
   - oraclejdk8
 
+services:
+  - mysql
+  - docker
+
 before_install:
+  - docker build -t carlad/sinatra .
+  - docker run -d -p 127.0.0.1:80:4567 carlad/sinatra /bin/sh -c "cd /root/sinatra; bundle exec foreman start;"
+  - docker ps -a
+  - docker run carlad/sinatra /bin/sh -c "cd /root/sinatra; bundle exec rake test"
   - echo "USE mysql;\nUPDATE user SET password=PASSWORD('fangjj1998') WHERE user='root';\nFLUSH PRIVILEGES;\n" | mysql -u root
   - mysql -u root --password="fangjj1998" < sqlscript/all2.sql
   - sudo service mysql restart
@@ -11,8 +21,6 @@ before_install:
 install: 
   - mvn install -DskipTests=true -Dmaven.javadoc.skip=true
 
-services:
-  - mysql
-
 script: 
+  - bundle exec rake test
   - mvn test

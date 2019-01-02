@@ -6,7 +6,7 @@
 	<groupId>com.mybk3</groupId>
 	<artifactId>Mybk-iteration3</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<packaging>jar</packaging>
+	<packaging>war</packaging>
 
 	<name>Mybk-iteration3</name>
 	<description>project for ebookstore Spring Boot</description>
