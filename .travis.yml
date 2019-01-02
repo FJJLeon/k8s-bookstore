@@ -4,11 +4,10 @@ jdk:
   - oraclejdk8
 
 before_install:
-  - chmod +x mvnw
+  - echo "USE mysql;\nUPDATE user SET password=PASSWORD('fangjj1998') WHERE user='root';\nFLUSH PRIVILEGES;\n" | mysql -u root
   - mysql -u root --password="" < sqlscript/all2.sql
   - mysql -u root --password="" < sqlscript/init.sql
   - sudo service mysql restart
-  - sudo mysql -u root -e 'CREATE DATABASE bookstore;'
 
 install: 
   - mvn install -DskipTests=true -Dmaven.javadoc.skip=true
