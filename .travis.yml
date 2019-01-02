@@ -6,7 +6,6 @@ jdk:
 before_install:
   - echo "USE mysql;\nUPDATE user SET password=PASSWORD('fangjj1998') WHERE user='root';\nFLUSH PRIVILEGES;\n" | mysql -u root
   - mysql -u root --password="fangjj1998" < sqlscript/all2.sql
-  - mysql -u root --password="fangjj1998" < sqlscript/init.sql
   - sudo service mysql restart
 
 install: 
