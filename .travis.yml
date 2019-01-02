@@ -5,8 +5,7 @@ jdk:
 
 before_install:
   - chmod +x mvnw
-  - sudo mysql -e "use mysql; update user set authentication_string=PASSWORD('fangjj1998') where User='root'; update user set plugin='mysql_native_password';FLUSH PRIVILEGES;"
-  - sudo mysql_upgrade -u root -pnew_password
+  - sudo mysql -e "use mysql; update user set authentication_string=PASSWORD('fangjj1998') where User='root'; update user set plugin='mysql_native_password';FLUSH PRIVILEGES;"| mysql -u root
   - sudo service mysql restart
   - sudo mysql -u root -e 'CREATE DATABASE bookstore;'
 
