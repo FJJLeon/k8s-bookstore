@@ -145,7 +145,7 @@ UNLOCK TABLES;
 
 -- Dump completed on 2017-05-02 21:35:35
 
-use bookstore;
+use BookStore;
 DROP TABLE IF EXISTS hibernate_sequence;
 
 insert into books value(1, "The Lord of the Rings", "J. R. R. Tolkien", "English", "1954-1955", "150", 1, 100);
