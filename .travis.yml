@@ -4,6 +4,7 @@ jdk:
   - oraclejdk8
 
 before_install:
+  - chmod +x mvnw
   - mysql -e 'CREATE DATABASE bookstore;'
 
 install: 
@@ -11,5 +12,6 @@ install:
 
 services:
   - mysql
+
 script: 
   - mvn test
