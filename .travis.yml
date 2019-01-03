@@ -20,8 +20,8 @@ install:
   - mvn install -DskipTests=true -Dmaven.javadoc.skip=true
 
 script: 
+  - docker images
   - bundle exec rake test
   - mvn test
 
-after_script:
-  - docker images
+  
