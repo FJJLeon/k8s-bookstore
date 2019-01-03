@@ -23,8 +23,8 @@ install:
   - mvn install -DskipTests=true -Dmaven.javadoc.skip=true
 
 before_script:
-  - docker build --tag mybookstore .
-  - docker run mybookstore
+  - docker build --tag fjjleon/bookstore .
+  - docker run fjjleon/bookstore
 
 script: 
   - docker images
@@ -35,7 +35,7 @@ before_deploy:
 
 deploy:
   provider: script
-  script: docker push fjjleon/bookstore:v1
+  script: docker push fjjleon/bookstore
   on:
     branch: master
   
