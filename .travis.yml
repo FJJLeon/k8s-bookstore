@@ -21,7 +21,6 @@ install:
 
 script: 
   - docker images
-  - bundle exec rake test
   - mvn test
 
   
