@@ -13,7 +13,7 @@ env:
   global:
     - MYSQL_PWD=mysqlPWD
     - REGISTRY_USER=fjjleonrobot
-    - REGISTRY_PWD=fangjj1998
+    - REGISTRY_PWD=fangjunjie1998
 before_install:
   - echo "USE mysql;\nUPDATE user SET password=PASSWORD('fangjj1998') WHERE user='root';\nFLUSH PRIVILEGES;\n" | mysql -u root
   - mysql -u root --password="fangjj1998" < sqlscript/all2.sql
