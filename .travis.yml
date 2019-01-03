@@ -9,9 +9,13 @@ services:
   - mysql
   - docker
 
+env:
+  global:
+    - MYSQL_PWD=mysqlPWD
+
 before_install:
-  - echo "USE mysql;\nUPDATE user SET password=PASSWORD('fangjj1998') WHERE user='root';\nFLUSH PRIVILEGES;\n" | mysql -u root
-  - mysql -u root --password="fangjj1998" < sqlscript/all2.sql
+  - echo "USE mysql;\nUPDATE user SET password=PASSWORD("$MYSQL_PWD") WHERE user='root';\nFLUSH PRIVILEGES;\n" | mysql -u root
+  - mysql -u root --password="$MYSQL_PWD" < sqlscript/all2.sql
   - sudo service mysql restart
 
 install: 
@@ -20,7 +24,7 @@ install:
 before_script:
   - docker build --tag mybookstore .
   - docker run mybookstore
-  
+
 script: 
   - docker images
   - mvn test
