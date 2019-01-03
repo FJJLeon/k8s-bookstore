@@ -17,7 +17,7 @@ before_install:
   - sudo service mysql restart
 
 install: 
-  - echo "install is in Dockerfile"
+  - mvn install -DskipTests=true -Dmaven.javadoc.skip=true
 
 script: 
   - docker images
