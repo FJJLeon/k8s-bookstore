@@ -24,7 +24,6 @@ install:
 
 before_script:
   - docker build --tag fjjleon/bookstore .
-  - docker run fjjleon/bookstore
 
 script: 
   - docker images
