@@ -6,7 +6,4 @@ ENV PATH "$PATH:/usr/games"
 
 ADD ./target/Mybk-iteration3-0.0.1-SNAPSHOT.war /usr/local/tomcat/webapps/
 
-ENTRYPOINT ["cowsay"]
-CMD ["Hello, World!"]
-
 RUN /bin/bash -c 'echo this is bookstore'
