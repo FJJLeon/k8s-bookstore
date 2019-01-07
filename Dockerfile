@@ -8,5 +8,6 @@ ENV PATH "$PATH:/usr/games"
 ADD ./target/*.war /usr/local/tomcat/webapps/
 
 ENV TZ=Asia/Shanghai
-
+EXPOSE 8080
+EXPOSE 3306
 RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
