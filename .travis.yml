@@ -27,7 +27,6 @@ before_script:
 
 script: 
   - docker images
-  - mvn test
 
 before_deploy:
   - docker login -u "$REGISTRY_USER" -p "$REGISTRY_PWD"
