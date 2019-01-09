@@ -1,5 +1,7 @@
 FROM tomcat:9-jre8
+
 WORKDIR /usr/local
+
 RUN apt-get update \
     && apt-get install -y --no-install-recommends cowsay \
     && apt-get install -y --no-install-recommends vim \
